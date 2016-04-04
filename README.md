@@ -57,20 +57,20 @@ emailage.query_email_and_ip_address 'test@example.com', '127.0.0.1', urid: 'My r
 
 Mark an email address as fraud, good, or neutral.  
 All the listed forms are possible.  
-When you mark something as fraud, don't forget to pass a fraud code name or number from this list:  
-1 - "Card Not Present Fraud"  
-2 - "Customer Dispute (Chargeback)"  
-3 - "First Party Fraud"  
-4 - "First Payment Default"  
-5 - "Identify Theft (Fraud Application)"  
-6 - "Identify Theft (Account Take Over)"  
-7 - "Suspected Fraud (Not Confirmed)"  
-8 - "Synthetic ID"  
-9 - "Other"  
+When you mark something as fraud, don't forget to pass a fraud code number from this list:  
+1 - Card Not Present Fraud  
+2 - Customer Dispute (Chargeback)  
+3 - First Party Fraud  
+4 - First Payment Default  
+5 - Identify Theft (Fraud Application)  
+6 - Identify Theft (Account Take Over)  
+7 - Suspected Fraud (Not Confirmed)  
+8 - Synthetic ID  
+9 - Other
 
 ```ruby
-# Mark an email address as fraud.
-emailage.flag 'fraud',   'test@example.com', 'Synthetic ID'
+# Mark an email address as fraud because of Synthetic ID.
+emailage.flag 'fraud',   'test@example.com', 8
 emailage.flag_as_fraud   'test@example.com', 8
 # Mark an email address as good.
 emailage.flag 'good',    'test@example.com'
