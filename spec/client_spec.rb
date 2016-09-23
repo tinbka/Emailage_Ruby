@@ -27,7 +27,8 @@ describe Emailage::Client do
       request
       expect(t).to have_received(:get).with\
         "https://sandbox.emailage.com/emailagevalidator/endpoint/",
-        :params => a_hash_including(:query => 'something', :oauth_consumer_key => 'secret')
+        :params => a_hash_including(:query => 'something', :oauth_consumer_key => 'secret'),
+        :sslversion => :tlsv1
     end
   
     it 'parses response body as JSON' do

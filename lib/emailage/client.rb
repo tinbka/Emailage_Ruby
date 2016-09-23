@@ -44,7 +44,7 @@ module Emailage
         :oauth_version => 1.0
       }.merge(params)
       
-      res = Typhoeus.get url, :params => params.merge(:oauth_signature => Signature.create('GET', url, params, @hmac_key))
+      res = Typhoeus.get url, :params => params.merge(:oauth_signature => Signature.create('GET', url, params, @hmac_key)), :sslversion => :tlsv1
       
       # For whatever reason Emailage dispatches JSON with unreadable symbls at the start, like \xEF\xBB\xBF.
       json = res.body.sub(/^[^{]+/, '')
